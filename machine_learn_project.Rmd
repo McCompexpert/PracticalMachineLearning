@@ -28,7 +28,7 @@ save(raw_testing, file="raw_testing.RData")
 # Data pre-processing
 We put aside the testing data set for our final model validation and will work with training dataset only. Our dataset contains 19.622 records with 160 different measurements (attributes), many of them contain NA values. 
 ```{r preprocessing1, echo=TRUE}
-setwd("~/GitHub/ML_Project")
+setwd("~/GitHub/PracticalMachineLearning")
 # load of previously chached data
 load("raw_training.RData")
 load("raw_testing.RData")
@@ -93,10 +93,10 @@ confusionMatrix(testPred, testing$classe)
 ## Out of sample error
 Now, we are applying the Random Forest model, previously trained on 15K+ records, validated on validation dataset (3K+ records) and finaly applied on the submission dataset. All 20 cases have been classified correctly which lets us conclude that on this dataset we achieved an out of sample error as of zero. Whether this model will bring the same zero errors at classifying other new records, needs to be analyzed separately.
 
-```{r results, echo=TRUE}
+```{r results, eval=FALSE}
 
 finalPred <- predict(g1, raw_testing.reduced)
 finalPred
-
+# All 20 submission cases have been predictied correctly.
 ```
 

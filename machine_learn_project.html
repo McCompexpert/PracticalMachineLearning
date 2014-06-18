@@ -214,7 +214,7 @@ save(raw_testing, file = &quot;raw_testing.RData&quot;)
 
 <p>We put aside the testing data set for our final model validation and will work with training dataset only. Our dataset contains 19.622 records with 160 different measurements (attributes), many of them contain NA values. </p>
 
-<pre><code class="r">setwd(&quot;~/GitHub/ML_Project&quot;)
+<pre><code class="r">setwd(&quot;~/GitHub/PracticalMachineLearning&quot;)
 # load of previously chached data
 load(&quot;raw_training.RData&quot;)
 load(&quot;raw_testing.RData&quot;)
@@ -296,7 +296,7 @@ postResample(testPred, testing$classe)
 </code></pre>
 
 <pre><code>## Accuracy    Kappa 
-##   0.9990   0.9988
+##   0.9997   0.9996
 </code></pre>
 
 <pre><code class="r"># Confussion Matrix shows that our model is erring in only one case.
@@ -307,33 +307,33 @@ confusionMatrix(testPred, testing$classe)
 ## 
 ##           Reference
 ## Prediction   A   B   C   D   E
-##          A 884   0   0   0   0
-##          B   0 614   1   0   0
-##          C   0   1 568   1   0
-##          D   0   0   0 492   0
-##          E   0   0   0   0 578
+##          A 900   1   0   0   0
+##          B   0 577   0   0   0
+##          C   0   0 566   0   0
+##          D   0   0   0 520   0
+##          E   0   0   0   0 580
 ## 
 ## Overall Statistics
 ##                                     
-##                Accuracy : 0.999     
-##                  95% CI : (0.997, 1)
-##     No Information Rate : 0.282     
+##                Accuracy : 1         
+##                  95% CI : (0.998, 1)
+##     No Information Rate : 0.286     
 ##     P-Value [Acc &gt; NIR] : &lt;2e-16    
 ##                                     
-##                   Kappa : 0.999     
+##                   Kappa : 1         
 ##  Mcnemar&#39;s Test P-Value : NA        
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: A Class: B Class: C Class: D Class: E
-## Sensitivity             1.000    0.998    0.998    0.998    1.000
-## Specificity             1.000    1.000    0.999    1.000    1.000
-## Pos Pred Value          1.000    0.998    0.996    1.000    1.000
-## Neg Pred Value          1.000    1.000    1.000    1.000    1.000
-## Prevalence              0.282    0.196    0.181    0.157    0.184
-## Detection Rate          0.282    0.196    0.181    0.157    0.184
-## Detection Prevalence    0.282    0.196    0.182    0.157    0.184
-## Balanced Accuracy       1.000    0.999    0.999    0.999    1.000
+## Sensitivity             1.000    0.998     1.00    1.000    1.000
+## Specificity             1.000    1.000     1.00    1.000    1.000
+## Pos Pred Value          0.999    1.000     1.00    1.000    1.000
+## Neg Pred Value          1.000    1.000     1.00    1.000    1.000
+## Prevalence              0.286    0.184     0.18    0.165    0.184
+## Detection Rate          0.286    0.184     0.18    0.165    0.184
+## Detection Prevalence    0.287    0.184     0.18    0.165    0.184
+## Balanced Accuracy       1.000    0.999     1.00    1.000    1.000
 </code></pre>
 
 <h1>Results</h1>
@@ -345,10 +345,7 @@ confusionMatrix(testPred, testing$classe)
 <pre><code class="r">
 finalPred &lt;- predict(g1, raw_testing.reduced)
 finalPred
-</code></pre>
-
-<pre><code>##  [1] B A B A A E D B A A B C B A E E A B B B
-## Levels: A B C D E
+# All 20 submission cases have been predictied correctly.
 </code></pre>
 
 </body>
