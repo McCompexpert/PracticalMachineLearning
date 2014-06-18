@@ -2,8 +2,6 @@
 Thumbs.db
 ehthumbs.db
 
-# Rdata files
-*.Rdata
 # Folder config file
 Desktop.ini
 
